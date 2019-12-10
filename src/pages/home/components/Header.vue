@@ -1,14 +1,14 @@
 <template>
   <div class="header">
     <div class="header-left">
-        <span class='iconfont iconjiantouxia'></span>
+        <span class='iconfont iconjiantouxia back-icon'></span>
     </div>
     <div class="header-input">
         <span class='iconfont icontubiao-'></span>
         输入城市/景点、游戏主题</div>
     <router-link to='/city'>
       <div class="header-right">
-        {{this.$store.state.city}}
+        {{this.city}}
           <span class='iconfont iconfanhui'></span>
       </div>
     </router-link>
@@ -16,8 +16,12 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
-  name: 'HomeHeader'
+  name: 'HomeHeader',
+  computed: {
+    ...mapState(['city'])
+  }
 }
 </script>
 
@@ -45,7 +49,12 @@ export default {
         color: #cccccc
         padding-left : .2rem
     .header-right
-        width : 1.24rem
+        min-width : 1.04rem
+        padding : 0 .1rem
         float : right
         text-align : center
+        color :#fff
+        .arrow-icon
+          margin-left: -.04rem
+          font-size: .24rem
 </style>
